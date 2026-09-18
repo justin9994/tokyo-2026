@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tokyo Shōgatsu Plan</title>
+<meta name="description" content="Draft itinerary for Tokyo over New Year, Dec 28 2026 – Jan 8 2027. React to each day and copy your feedback.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Noto+Serif+JP:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --washi:#F3EFE6; --washi-2:#E9E3D6; --card:#FBF9F4; --sumi:#1E2126; --sumi-2:#4B4F57; --mute:#7C808A;
+  --line:#D9D2C3; --ai:#243B6B; --ai-soft:#E4E9F3; --shu:#B7352A; --shu-soft:#F6E3E0;
+  --matcha:#5E7B3A; --matcha-soft:#E4EBD6; --kin:#A88536; --focus:#243B6B;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --washi:#15171B; --washi-2:#1C1F25; --card:#1E2229; --sumi:#ECE8DF; --sumi-2:#BDB8AC; --mute:#8B8C90;
+    --line:#2E323A; --ai:#8FA6E0; --ai-soft:#222A3C; --shu:#E0665A; --shu-soft:#3A2522;
+    --matcha:#9DBB74; --matcha-soft:#232D1B; --kin:#D3B063; --focus:#8FA6E0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --washi:#15171B; --washi-2:#1C1F25; --card:#1E2229; --sumi:#ECE8DF; --sumi-2:#BDB8AC; --mute:#8B8C90;
+  --line:#2E323A; --ai:#8FA6E0; --ai-soft:#222A3C; --shu:#E0665A; --shu-soft:#3A2522;
+  --matcha:#9DBB74; --matcha-soft:#232D1B; --kin:#D3B063; --focus:#8FA6E0; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--washi);color:var(--sumi);font:16px/1.55 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;position:relative}
+/* washi grain */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .48 0 0 0 0 .44 0 0 0 .18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body::before{mix-blend-mode:screen;opacity:.12}}
+:root[data-theme="dark"] body::before{mix-blend-mode:screen;opacity:.12}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding-inline:18px;padding-block:0 96px}
+h1,h2,h3,.jp{font-family:"Shippori Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(36px,7vw,64px);line-height:1.02;font-weight:800;letter-spacing:-.005em}
+h2{font-size:clamp(26px,3.6vw,34px);font-weight:700;line-height:1.15}
+h3{font-size:18px;font-weight:700;line-height:1.3}
+p{margin:0 0 12px}
+a{color:var(--ai);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--ai) 40%,transparent)}
+a:hover{border-bottom-color:var(--ai)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.small{font-size:13.5px;color:var(--sumi-2)}
+dfn{font-style:normal;border-bottom:1px dotted var(--kin);cursor:help}
+ul{padding-left:18px;margin:0 0 8px}
+li{margin:5px 0}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--washi) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .in{max-width:980px;margin:0 auto;padding:9px 18px;display:flex;gap:4px 14px;align-items:center;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+nav.top .in::-webkit-scrollbar{display:none}
+nav.top .brand{font-family:"Shippori Mincho",serif;font-weight:800;font-size:16px;margin-right:auto;color:var(--sumi);border:0;padding-right:10px}
+nav.top a{font-size:13px;border:0;color:var(--sumi-2);padding:4px 2px}
+nav.top a:hover{color:var(--sumi)}
+
+/* hero */
+.hero{padding-block:40px 30px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 92px;gap:20px;align-items:start;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-40px;top:-30px;width:320px;height:220px;opacity:.16;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'><g fill='none' stroke='%23243B6B' stroke-width='1.2'><path d='M0 30a30 30 0 0 1 60 0M6 30a24 24 0 0 1 48 0M12 30a18 18 0 0 1 36 0M18 30a12 12 0 0 1 24 0M24 30a6 6 0 0 1 12 0'/><path d='M-30 30a30 30 0 0 1 60 0M30 30a30 30 0 0 1 60 0' transform='translate(0 -15)'/></g></svg>") repeat;mask:linear-gradient(135deg,transparent 20%,#000 70%)}
+.hero .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.hero .meta{display:grid;gap:5px;font-size:14.5px;color:var(--sumi-2);margin-top:18px;max-width:62ch}
+.hero .meta b{color:var(--sumi);font-weight:600;display:inline-block;min-width:60px}
+.hanko{width:84px;height:84px;background:var(--shu);color:#fff;border-radius:8px;display:grid;place-items:center;font-family:"Noto Serif JP","Shippori Mincho",serif;font-weight:700;font-size:40px;line-height:1;transform:rotate(-6deg);box-shadow:inset 0 0 0 3px var(--shu),inset 0 0 0 5px #fff;justify-self:end;position:relative;z-index:1}
+.hanko small{display:block;font-size:10px;letter-spacing:.12em;font-family:"IBM Plex Mono",monospace;margin-top:2px}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.hanko{justify-self:start;margin-top:-8px;width:64px;height:64px;font-size:30px}}
+
+/* sections */
+section{padding-block:38px 6px;position:relative}
+section+section{border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;margin-bottom:10px}
+.sec-head .kanji{font-family:"Noto Serif JP","Shippori Mincho",serif;font-size:40px;line-height:1;color:var(--ai);font-weight:700;writing-mode:vertical-rl;padding:4px 0;border-right:2px solid var(--kin);min-height:60px}
+.sec-head .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.lead{font-size:16.5px;color:var(--sumi-2);max-width:64ch}
+
+/* callouts */
+.note{background:var(--matcha-soft);border-left:3px solid var(--matcha);padding:12px 14px;margin:14px 0;border-radius:0 8px 8px 0}
+.note.shu{background:var(--shu-soft);border-left-color:var(--shu)}
+.note.ai{background:var(--ai-soft);border-left-color:var(--ai)}
+.note p:last-child{margin:0}
+
+/* strip calendar */
+.cal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin:16px 0 6px}
+.cal a{display:block;border:1px solid var(--line);background:var(--card);padding:8px;border-radius:8px;color:var(--sumi);font-size:12px;line-height:1.3;min-height:70px}
+.cal a .d{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--mute);display:block}
+.cal a .t{font-weight:500;display:block;margin-top:3px}
+.cal a.ny{background:var(--washi-2)}
+.cal a.trip{border-color:var(--matcha)}
+@media (max-width:720px){.cal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:400px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* day cards as <details> */
+details.day{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:12px 0;overflow:clip}
+details.day>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:14px 16px}
+details.day>summary::-webkit-details-marker{display:none}
+details.day>summary:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.dt{text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.dt .dow{font-family:"Shippori Mincho",serif;font-size:13px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.dt .num{font-family:"Shippori Mincho",serif;font-size:30px;font-weight:800;line-height:1}
+.dt .mon{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mute)}
+.ttl h3{margin-bottom:3px}
+.ttl .one{font-size:14px;color:var(--sumi-2)}
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.chip{font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--washi-2);color:var(--sumi-2);border:1px solid var(--line)}
+.chip.ny{background:var(--shu-soft);color:var(--shu);border-color:transparent}
+.chip.trip{background:var(--matcha-soft);color:var(--matcha);border-color:transparent}
+.chip.book{background:var(--ai-soft);color:var(--ai);border-color:transparent}
+.caret{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--mute);transition:transform .2s}
+.caret::before{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-1px,-1px)}
+details[open] .caret{transform:rotate(180deg)}
+.body{padding:2px 16px 16px;border-top:1px dashed var(--line)}
+.body .why{font-size:14px;color:var(--sumi-2);margin:12px 0 10px;padding:10px 12px;background:var(--washi-2);border-radius:8px}
+.body ul{margin:0 0 10px}
+.body li b{font-weight:600}
+.alt{color:var(--sumi-2)}
+.alt::before{content:"or · ";font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--kin);letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:560px){details.day>summary{grid-template-columns:56px 1fr auto;padding:12px}.dt .num{font-size:26px}}
+
+/* feedback widget */
+.fb{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.fb button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--sumi-2);padding:5px 11px;border-radius:999px;cursor:pointer;line-height:1.2}
+.fb button:hover{border-color:var(--sumi-2)}
+.fb button:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.fb button[aria-pressed="true"]{background:var(--sumi);color:var(--washi);border-color:var(--sumi)}
+.fb .lbl{font-size:12px;color:var(--mute);margin-right:2px}
+.fb input{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--sumi);padding:5px 10px;border-radius:8px;min-width:0;flex:1 1 170px}
+
+/* compare cards (sights) */
+.vs{display:grid;gap:10px;margin:14px 0}
+.vs .row{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.vs .row>div{padding:12px 14px;font-size:14px}
+.vs .row>div+div{border-left:1px solid var(--line);background:var(--matcha-soft)}
+.vs .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:3px}
+.vs .row>div+div .k{color:var(--matcha)}
+.vs b{font-weight:600}
+@media (max-width:560px){.vs .row{grid-template-columns:1fr}.vs .row>div+div{border-left:0;border-top:1px solid var(--line)}}
+
+/* option cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+.opt{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px}
+.opt h3{font-size:17px}
+.opt .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.opt ul{margin:4px 0 0;font-size:14px}
+.opt .fb{margin-top:auto;padding-top:8px}
+.pick{border-color:var(--matcha);box-shadow:inset 0 0 0 1px var(--matcha)}
+.pick .k::after{content:"  · recommended";color:var(--matcha)}
+
+/* responsive table */
+.tbl{margin:14px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500;background:var(--washi-2)}
+tbody tr:last-child td{border-bottom:0}
+.y{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:680px){
+  thead{display:none}
+  table,tbody,tr,td{display:block;width:100%}
+  tr{padding:8px 0;border-bottom:1px solid var(--line)}
+  tbody tr:last-child{border-bottom:0}
+  td{border:0;padding:3px 12px;display:grid;grid-template-columns:92px 1fr;gap:8px}
+  td::before{content:attr(data-l);font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+  td:first-child{font-weight:600;grid-template-columns:1fr;padding-top:8px}
+  td:first-child::before{display:none}
+  .y{white-space:normal}
+}
+
+/* timeline */
+.tl{list-style:none;margin:16px 0;padding:0;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 14px 20px;font-size:14.5px}
+.tl li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--card);border:2px solid var(--ai)}
+.tl li.now::before{background:var(--shu);border-color:var(--shu)}
+.tl .d{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--mute);display:block}
+.tl b{font-weight:600}
+
+/* glossary */
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 18px;margin:14px 0;font-size:14px}
+.gloss div{padding:8px 0;border-bottom:1px dotted var(--line)}
+.gloss b{font-weight:600}
+.gloss .jp{color:var(--mute);font-size:13px;margin-left:4px}
+
+/* questions */
+.qs{margin:12px 0;padding-left:20px}
+.qs li{margin:8px 0}
+#genNotes{width:100%;min-height:80px;font:inherit;font-size:14px;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--card);color:var(--sumi);margin-top:8px}
+
+/* bottom bar + dialog */
+.sumbar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sumi);color:var(--washi);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;font-size:14px}
+.sumbar button{font:inherit;font-size:14px;background:var(--washi);color:var(--sumi);border:0;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:500}
+.sumbar #fbCount{font-family:"IBM Plex Mono",monospace}
+dialog{border:0;border-radius:12px;padding:0;max-width:600px;width:calc(100% - 32px);background:var(--card);color:var(--sumi)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+dialog .in{padding:18px}
+dialog textarea{width:100%;min-height:240px;font:13px/1.45 "IBM Plex Mono",monospace;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--washi);color:var(--sumi)}
+dialog .row{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;flex-wrap:wrap}
+dialog button{font:inherit;padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--washi);color:var(--sumi);cursor:pointer}
+dialog button.primary{background:var(--sumi);color:var(--washi);border-color:var(--sumi)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 0}
+.tools button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--sumi-2);padding:5px 11px;border-radius:999px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="in">
+  <a class="brand" href="#top">東京 · Tokyo Shōgatsu Plan</a>
+  <a href="#days">Days</a><a href="#sights">Sights</a><a href="#trips">Uji &amp; snow</a><a href="#food">Food</a><a href="#fit">Fitness</a><a href="#shop">Shopping</a><a href="#night">Nightlife</a><a href="#book">Booking clock</a><a href="#gloss">Glossary</a><a href="#q">Questions</a>
+</div></nav>
+
+<div class="wrap" id="top">
+<header class="hero">
+  <div>
+    <div class="eyebrow">Draft v0.2 · for group feedback · updated Sept 18, 2026</div>
+    <h1 style="margin-top:10px">Tokyo over<br>New Year</h1>
+    <div class="jp" style="font-size:18px;color:var(--mute);margin-top:8px;font-weight:500"><span style="white-space:nowrap">十二月二十八日 → 一月八日</span> · <span style="white-space:nowrap">12 days, 11 nights</span></div>
+    <div class="meta">
+      <div><b>Who</b> Justin · Brittany · Derek · Elijah</div>
+      <div><b>Out</b> JAL 61 · LAX Sat Dec 27 11:45 → Narita Sun Dec 28 16:40</div>
+      <div><b>Home</b> JAL 62 · Narita Thu Jan 8 17:05 → LAX Thu Jan 8 09:40 (you land before you left)</div>
+      <div><b>Base</b> Hyatt Regency Tokyo, Nishi-Shinjuku, Ambassador Suite. Every night is here.</div>
+      <div><b>Weather</b> highs 8–10°C / 46–50°F, near freezing at dawn, mostly dry. Sunset 16:30.</div>
+    </div>
+  </div>
+  <div class="hanko" aria-hidden="true">旅<small>DRAFT</small></div>
+</header>
+
+<div class="note shu" style="margin-top:20px">
+  <p><b>Read this first.</b> Our dates sit on top of <dfn title="Shōgatsu: Japanese New Year, the biggest holiday of the year">Shōgatsu</dfn>, Japan's Christmas-and-Thanksgiving rolled together. From about Dec 30 to Jan 3 most independent restaurants, many museums, the Tsukiji fish market and department stores close. Jan 1–3, millions of people queue at shrines for <dfn title="Hatsumode: the first shrine visit of the year, Jan 1–3">hatsumode</dfn>. It's a special time to be there, but you plan around it: eat and shop hard on Dec 29–30, party on Dec 31, ride the quiet on Jan 1, then hit Uji, Disney and the good restaurants once everything reopens Jan 4–7.</p>
+</div>
+
+<div class="note">
+  <p><b>How to give feedback.</b> Tap a day to expand it. Each day and each option has 👍 <b>in</b> / 🤷 <b>unsure</b> / 👎 <b>skip</b> and a one-line note. Reactions save in your own browser only. When you're done, hit <b>Copy my feedback</b> at the bottom and paste the text into the group chat.</p>
+  <div class="fb"><span class="lbl">Your name</span><input id="fbName" placeholder="e.g. Brittany" aria-label="Your name"></div>
+</div>
+
+<!-- ============ DAYS ============ -->
+<section id="days">
+  <div class="sec-head"><div class="kanji">日程</div><div><div class="eyebrow">The spine</div><h2>Day by day</h2></div></div>
+  <p class="lead">Collapsed on purpose: the one-liner is the plan, the dropdown is the reasoning and the alternatives. <span class="mono" style="color:var(--shu)">NY</span> means New Year closures apply; <span class="mono" style="color:var(--matcha)">trip</span> is a day out of Tokyo; <span class="mono" style="color:var(--ai)">book</span> means something on that day has a ticket or reservation.</p>
+  <div class="tools"><button type="button" id="openAll">Expand all days</button><button type="button" id="closeAll">Collapse all</button></div>
+
+  <div class="cal">
+    <a href="#d28"><span class="d">Sun 12/28</span><span class="t">Land 16:40 · Tocho view · yakitori alley</span></a>
+    <a href="#d29" class="ny"><span class="d">Mon 12/29</span><span class="t">Tsukiji dash · Ginza · teamLab</span></a>
+    <a href="#d30" class="ny"><span class="d">Tue 12/30</span><span class="t">Yoyogi run · Harajuku · Shibuya · big dinner</span></a>
+    <a href="#d31" class="ny"><span class="d">Wed 12/31</span><span class="t">Senso-ji at 7 · onsen · Circus Tokyo</span></a>
+    <a href="#d01" class="ny"><span class="d">Thu 1/1</span><span class="t">Nothing day · small shrine · osechi</span></a>
+    <a href="#d02" class="ny"><span class="d">Fri 1/2</span><span class="t">Emperor's greeting · lucky bags</span></a>
+    <a href="#d03" class="trip"><span class="d">Sat 1/3</span><span class="t">GALA Yuzawa snowboarding</span></a>
+    <a href="#d04"><span class="d">Sun 1/4</span><span class="t">Nakano watches · Shimokitazawa · dinner</span></a>
+    <a href="#d05" class="trip"><span class="d">Mon 1/5</span><span class="t">Uji matcha day (long one)</span></a>
+    <a href="#d06"><span class="d">Tue 1/6</span><span class="t">Street karts · Akihabara · latte art</span></a>
+    <a href="#d07"><span class="d">Wed 1/7</span><span class="t">DisneySea (vote)</span></a>
+    <a href="#d08"><span class="d">Thu 1/8</span><span class="t">Tax refund at Narita · fly 17:05</span></a>
+  </div>
+
+  <details class="day" id="d28" open>
+    <summary><div class="dt"><div class="dow">Sun</div><div class="num">28</div><div class="mon">DEC</div></div>
+      <div class="ttl"><h3>Land, drop bags, look down on Shinjuku for free</h3><div class="one">Narita 16:40 → hotel by ~19:30 → free 202 m observation deck next door → yakitori alley dinner.</div><div class="chips"><span class="chip">arrival</span><span class="chip">easy night</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">First night after an 12-hour flight and a 17-hour time jump. Zero commitments, everything within a 10-minute walk of the hotel, in bed by 23:00.</div>
+      <ul>
+        <li><b>Airport → hotel.</b> Immigration at Narita can take an hour at 17:00. Then the <b>Airport Limousine Bus</b> (~¥3,600, 100 min, stops at the Nishi-Shinjuku hotels) or Narita Express to Shinjuku (~¥3,250, 80 min) plus a short taxi. Bus wins with four people and luggage.</li>
+        <li><b>Before landing:</b> add a <dfn title="Suica: Japan's tap-to-pay transit card. Add it to Apple Wallet or Google Wallet before you fly and top up with a US card.">Suica</dfn> card to your phone wallet. It pays for every train, bus, vending machine and konbini.</li>
+        <li><b>Tokyo Metropolitan Government Building observatory</b> (locals say "Tocho"): 202 m up, free, the building next to the hotel, south deck open to 22:00. This is the Shibuya Sky view without the ¥3,400 ticket or the queue.</li>
+        <li><b>Dinner at Omoide Yokocho</b>, a 1940s alley of tiny grilled-skewer bars by Shinjuku station. Kabuto for eel, anything with a line for chicken. Cash. Dec 26–28 is <dfn title="Bonenkai: 'forget-the-year' office parties. Every bar in Japan is full of coworkers the last week of December.">bonenkai</dfn> season so bounce between counters.</li>
+        <li class="alt">Wiped out: Isetan department store's basement food hall (<dfn title="Depachika: the basement food floor of a department store. Sushi, bento, pastry, wagyu, all takeaway.">depachika</dfn>) closes 20:00; grab a spread and eat in the suite.</li>
+      </ul>
+      <div class="fb" data-fb="Dec 28 · arrival night (Tocho deck, Omoide Yokocho)"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d29">
+    <summary><div class="dt"><div class="dow">Mon</div><div class="num">29</div><div class="mon">DEC</div></div>
+      <div class="ttl"><h3>Fish market dash, Ginza watches, teamLab at night</h3><div class="one">Tsukiji by 8:00 (last day it's open) → Ginza vintage watch shops → teamLab Planets timed slot → first fine-dining night.</div><div class="chips"><span class="chip ny">NY</span><span class="chip book">book</span><span class="chip">jet-lag friendly</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">You'll be awake at 5 a.m. anyway. Tsukiji Outer Market closes for New Year from about Dec 30 to Jan 4, so today is the only shot, and it's also the market's busiest week of the year. Go early, eat standing, leave by 10.</div>
+      <ul>
+        <li><b>Tsukiji Outer Market</b>, 8:00. The wholesale fish auction moved to Toyosu in 2018; what's left is 400 street stalls: tuna bowls, tamagoyaki on a stick, grilled scallops, strawberry daifuku. ¥3,000–5,000 pp to graze.</li>
+        <li><b>Ginza</b>, 15 min walk. <b>Shellman</b> (vintage watch specialist since 1971), <b>Grand Seiko flagship</b>, the Seiko clock tower, <b>Seiko Museum</b> (free, book a slot). Dover Street Market, a 12-floor Uniqlo, Itoya stationery. Cafe de l'Ambre for coffee in a 1948 <dfn title="Kissaten: an old-school Japanese coffee house. Slow, quiet, pour-over or siphon.">kissaten</dfn>.</li>
+        <li><b>teamLab Planets</b> (Toyosu, ~¥3,200–3,600, timed ticket). Digital art you walk through barefoot, some rooms are knee-deep water. Roll-up pants. It closes for good at the end of 2027, which is why it beats Borderless.</li>
+        <li><b>Fine-dining night #1.</b> Sazenka (1 Michelin star Chinese <dfn title="Kaiseki: a multi-course Japanese tasting menu, seasonal, very deliberate.">kaiseki</dfn>, bookable instantly online) or Manten Sushi (¥8,800 flat omakase, seats four easily). Many top places already start their holiday closure tomorrow.</li>
+      </ul>
+      <div class="fb" data-fb="Dec 29 · Tsukiji, Ginza, teamLab Planets, dinner #1"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d30">
+    <summary><div class="dt"><div class="dow">Tue</div><div class="num">30</div><div class="mon">DEC</div></div>
+      <div class="ttl"><h3>Run west, shop Harajuku, Shibuya at dusk, the big dinner</h3><div class="one">Yoyogi Park run + coffee → Cat Street brands → Shibuya view (paid or free) → last fine-dining night before closures → Bar Benfiddich.</div><div class="chips"><span class="chip ny">NY</span><span class="chip book">book</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">The last normal day before Japan shuts down. Spend it in the two neighborhoods everyone comes to Tokyo for, and use the evening for the restaurant that costs the most, because from tomorrow it's closed until Jan 4.</div>
+      <ul>
+        <li><b>Morning run</b>: hotel → Yoyogi Park and the wooded path around Meiji Jingu shrine, 2.5 km out, loop, back. Coffee at Fuglen Tomigaya or Little Nap by the park's west gate.</li>
+        <li><b>Harajuku, but the grown-up side</b>: skip Takeshita Street (teen crush), walk Cat Street and Ura-Harajuku for Kapital, Neighborhood, Human Made, Beams, Ragtag (designer resale), Kinji (vintage), Nepenthes/Needles. Aoyama, 10 minutes on, for Comme des Garçons, Issey Miyake, Sacai, and the Prada glass building.</li>
+        <li><b>Shibuya at 16:00</b>: Shibuya Sky rooftop, ¥2,700–3,400, sunset slots release 14 days ahead and vanish fast. Or the free move: <b>Hikarie 11F Sky Lobby</b> across the street, no ticket, open to midnight, looks straight down at the crossing.</li>
+        <li><b>Fine-dining night #2</b>: Florilège (2 stars) or Den (2 stars, phone-only, concierge books it). Details in Food.</li>
+        <li><b>Bar Benfiddich</b>, on the 9th floor of a Nishi-Shinjuku office building, walk home. No menu; you say what you like and the bartender builds it from herbs he grows. World's 50 Best Bars. Reservation calendar opens Nov 20.</li>
+      </ul>
+      <div class="fb" data-fb="Dec 30 · Yoyogi run, Harajuku, Shibuya, dinner #2, Benfiddich"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d31">
+    <summary><div class="dt"><div class="dow">Wed</div><div class="num">31</div><div class="mon">DEC</div></div>
+      <div class="ttl"><h3>Old Tokyo at dawn, onsen, then Circus Tokyo till 5</h3><div class="one">Senso-ji temple at 7:00 → knife street → hot spring recovery → early dinner, nap → Circus Tokyo 22:00–05:00.</div><div class="chips"><span class="chip ny">NYE</span><span class="chip book">tickets</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Tonight is the reason we're here on these dates. The day is built to be low-effort and to get everyone horizontal for two hours before 22:00.</div>
+      <ul>
+        <li><b>Senso-ji, Asakusa, 7:00.</b> Tokyo's oldest temple. At 7 it's monks and pigeons; by 10 it's a crowd, and tonight it hosts the <dfn title="Joya no kane: temples ring their bell 108 times at midnight on Dec 31, once for each human desire.">Joya no Kane</dfn> bells. Walk Nakamise street as the shutters open.</li>
+        <li><b>Kappabashi</b>, 15 min walk: the street where restaurants buy their kitchens. <b>Kama-Asa</b> for knives with free name engraving. Tax-free with passport.</li>
+        <li><b>Onsen recovery</b> at <b>Thermae-Yu</b> in Kabukicho (24 h, ~¥2,700). Tattoos are allowed if covered with their ¥300 stickers, max two per person, so this only works for small tattoos. Tattoo-friendly alternatives: <b>Kogane-yu</b> or <b>Daikoku-yu</b> in Kinshicho, neighborhood bathhouses (<dfn title="Sento: a public bathhouse with heated tap water. Onsen means natural hot-spring water. Same etiquette: wash first, no swimsuits, no phones.">sento</dfn>) with a craft beer bar, ¥520–1,000.</li>
+        <li><b>Early dinner</b> at a hotel restaurant or a chain; most independents are closed. Nap.</li>
+        <li><b>Circus Tokyo</b>, 5 min from Shibuya station's New South exit. Two rooms, high-ceilinged basement, house/techno/breaks/DnB. Last year's countdown ran 22:00–05:00, London Elektricity headlining, ¥3,500 early bird to ¥5,000 door, on ZAIKO and Resident Advisor. This year's lineup lands late Oct to Nov. Bring passports (20+ and ID checked).</li>
+        <li class="alt">If the lineup disappoints: <b>WOMB</b> (Shibuya techno institution, ¥6,000–8,000), <b>Zerotokyo</b> (Kabukicho, 1,500 people, five floors, walk home).</li>
+        <li><b>Home</b>: some trains run all night on NYE; otherwise a taxi Shibuya → hotel is ~¥3,000. Ichiran ramen in Shibuya is open at 5 a.m.</li>
+      </ul>
+      <div class="fb" data-fb="Dec 31 · Senso-ji dawn, Kappabashi, onsen, Circus Tokyo"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d01">
+    <summary><div class="dt"><div class="dow">Thu</div><div class="num">1</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Nothing day, on purpose</h3><div class="one">Sleep → hotel gym → small neighborhood shrine → New Year box meal at the hotel.</div><div class="chips"><span class="chip ny">everything closed</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Jan 1 in Japan is like Christmas morning in the US: shuttered and quiet. Department stores, most restaurants and banks are closed. It's also the morning after a 5 a.m. club exit. Lean into it.</div>
+      <ul>
+        <li>Konbini breakfast (the 7-Eleven egg sandwich is a legit thing). Hotel gym when you surface.</li>
+        <li><b>Hatsumode, small version.</b> Meiji Jingu will see 3 million people over three days. <b>Hanazono Shrine</b>, 15 min walk in Shinjuku, gives you the same ritual with festival food stalls at a tenth of the scale. Toss a coin, pull an <dfn title="Omikuji: a paper fortune drawn at a shrine, ¥100–300. Bad ones get tied to a rack and left behind.">omikuji</dfn> fortune.</li>
+        <li><b>Osechi</b> at the hotel: <dfn title="Osechi: tiered lacquer boxes of symbolic New Year foods, eaten Jan 1–3. Ask the concierge now; they sell out.">osechi</dfn> is the traditional New Year meal, ordered weeks ahead. Ask the Hyatt concierge in October.</li>
+        <li>Konbini ATMs work; bank ATMs may not until Jan 4.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 1 · rest day, Hanazono shrine, osechi"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d02">
+    <summary><div class="dt"><div class="dow">Fri</div><div class="num">2</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>See the Emperor, buy a mystery bag, run the palace</h3><div class="one">Imperial Palace 5 km run → the Imperial Family's balcony appearance → fukubukuro lucky bags at Isetan → Marunouchi lights.</div><div class="chips"><span class="chip ny">NY</span><span class="chip">only happens Jan 2</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Two things exist only on this date: the Imperial Family greets the public from the palace balcony, and stores reopen with fukubukuro. Both are very Japanese, both free-ish, both near each other.</div>
+      <ul>
+        <li><b>Imperial Palace loop</b>, the 5 km run every Tokyo runner does, counter-clockwise around the moat. adidas Runbase lockers and showers, ¥800.</li>
+        <li><b>New Year Greeting</b>: the Emperor and family appear on the palace balcony about five times between roughly 10:10 and 14:20 (2027 times to be confirmed). Free, enter through the main gate, they hand you a paper flag. Expect airport-style bag checks and 30–60 min of queueing.</li>
+        <li><b><dfn title="Fukubukuro: 'lucky bags'. Sealed bags of mystery merchandise sold Jan 1–3 at a steep discount. Beams, Uniqlo and Isetan bags are famous.">Fukubukuro</dfn></b>: Isetan Shinjuku opens 10:00 on Jan 2, Lumine 11:00. People queue hours for Beams and Uniqlo bags. Winter sales start the same day.</li>
+        <li><b>Marunouchi illuminations</b> (through Feb 15) then Nemuro Hanamaru conveyor-belt sushi at Kitte, Hokkaido fish, ¥3,000 pp, always a line, worth it.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 2 · palace run, Emperor's greeting, fukubukuro, Marunouchi"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d03">
+    <summary><div class="dt"><div class="dow">Sat</div><div class="num">3</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Snowboard day at GALA Yuzawa</h3><div class="one">Bullet train 77 min → gondola at the station exit → ride → onsen at the station → home for dinner.</div><div class="chips"><span class="chip trip">trip</span><span class="chip book">train + lift</span><span class="chip">go/no-go Dec 27</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Option A from the group: a zero-logistics snow day with no overnight. GALA is the only resort in Japan built on top of its own <dfn title="Shinkansen: the bullet train. Reserved seats, on time to the second, book one month ahead.">shinkansen</dfn> station. It's cruiser terrain, not Niseko powder, but it's real snow 77 minutes from Tokyo Station. Restaurants and clubs are still shut in Tokyo today anyway.</div>
+      <ul>
+        <li><b>Train</b>: Joetsu Shinkansen Tokyo → GALA Yuzawa, ~¥6,300 each way, seats on Eki-net from Dec 3. JR East usually sells a train + lift bundle ("JR SKISKI") from November.</li>
+        <li><b>Lift</b> ¥6,000 online. <b>Rental</b> board + boots ~¥5,500, plus jacket/pants if you didn't pack them. Bring your own boots if you're picky.</li>
+        <li><b>Snow</b>: low elevation, so late-December can be thin and icy. Check SnowJapan and snow-forecast.com the week before; if the base is under 100 cm, swap this day with Jan 4 and go to Shimokitazawa instead.</li>
+        <li>Saturday means crowds. If the group can flex, Monday Jan 5 is quieter but that collides with Uji.</li>
+        <li class="alt">Upgrade: same train to Echigo-Yuzawa + 40 min bus to <b>Kagura</b> for tree runs and real terrain, ¥7,500 lift, 2.5 h door to door.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 3 · GALA Yuzawa snow day (option A)"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d04">
+    <summary><div class="dt"><div class="dow">Sun</div><div class="num">4</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Vintage watches, vintage clothes, Tokyo reopens</h3><div class="one">Nakano Broadway watch dealers → Shimokitazawa vintage → restaurants come back: fine-dining night #3.</div><div class="chips"><span class="chip book">book</span><span class="chip">shopping</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Legs will be tired from the slopes; today is trains, browsing and eating. Jan 4 is when the city's restaurants start reopening.</div>
+      <ul>
+        <li><b>Nakano Broadway</b>, 15 min from Shinjuku: a 1960s mall that's now Japan's vintage watch capital. <b>Jackroad</b> on 3F is the biggest pre-owned dealer in the country (Rolex, Omega, Seiko, Patek), <b>Firekids</b> for vintage Seiko, <b>Mandarake</b> for anime toys from your childhood. Open to 20:30.</li>
+        <li><b>Shimokitazawa</b>, the vintage-clothing neighborhood: New York Joe Exchange (in an old bathhouse), Flamingo, Haight &amp; Ashbury, 2nd Street. Coffee and record shops in between.</li>
+        <li class="alt">Daikanyama instead: T-Site bookstore, Okura for indigo, Hollywood Ranch Market.</li>
+        <li><b>Fine-dining night #3</b> as bookings reopen, or a serious sushi counter (Kanesaka, Hakkoku) if we decide to stretch the budget once.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 4 · Nakano watches, Shimokitazawa, dinner #3"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d05">
+    <summary><div class="dt"><div class="dow">Mon</div><div class="num">5</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Uji: the matcha pilgrimage (long day)</h3><div class="one">6:45 leave hotel → Nozomi to Kyoto → local train to Uji → Byodo-in, Nakamura Tokichi, grind your own matcha → back at the hotel ~21:30.</div><div class="chips"><span class="chip trip">trip</span><span class="chip book">train</span><span class="chip">14-hour day</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Uji is the town where Japanese matcha was perfected 800 years ago; it's near Kyoto, 3.5 hours from our hotel each way. The group chose to do it as a day trip rather than sleep away from the suite, so this is a dawn-to-late-evening day with a hard train home. Monday: weekday crowds, everything reopened after New Year.</div>
+      <ul>
+        <li><b>Trains</b>: Shinjuku → Tokyo Station → <b>Nozomi</b> 8:00ish → Kyoto 10:15 → JR Nara Line rapid 20 min → Uji ~10:50. About ¥14,000 pp each way ordinary reserved (Green Car ¥19,000). Book on <b>SmartEX</b> the moment it opens, Dec 5. Right-hand E seats for Mt Fuji about 40 minutes in.</li>
+        <li><b>Byodo-in</b> (¥700 + ¥300 for the Phoenix Hall interior, timed entries every 20 min): the temple on the ¥10 coin.</li>
+        <li><b>Nakamura Tokichi Honten</b>: the matcha cafe. Take a numbered ticket from the machine on arrival (a QR code tracks your wait) then go see Byodo-in. Midday waits run 60–90 min. Matcha parfait, matcha soba, hojicha jelly. <b>Itoh Kyuemon</b> and 850-year-old <b>Tsuen Tea</b> by the bridge are shorter-queue backups.</li>
+        <li><b>Grind your own</b>: Fukujuen Ujicha Kobo, ¥2,200, 40 min, stone-mill <dfn title="Tencha: shade-grown tea leaves before they're ground. Grinding them on a stone mill is what makes matcha.">tencha</dfn> into matcha, then drink it. Reserve by phone. Bigger version: Marukyu Koyamaen factory tour, English twice a week, email booking, ask now.</li>
+        <li><b>Ujigami Shrine</b> (UNESCO, oldest shrine building in Japan, free) and the river walk if time allows. The municipal tea house Taiho-an is reportedly closed until Jan 9, so it's out.</li>
+        <li><b>Home</b>: Uji 17:00 → Kyoto → Nozomi 17:50 → Tokyo 20:05 → hotel 21:30. Dinner is an <dfn title="Ekiben: a boxed meal sold at the station for eating on the train. A genre unto itself.">ekiben</dfn> on the train, which is its own Japan experience.</li>
+        <li class="alt">If the group wants Fushimi Inari's torii tunnels: it's on the same local line, two stops from Kyoto. Adds 90 min; something else has to go.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 5 · Uji matcha day trip (14 h)"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d06">
+    <summary><div class="dt"><div class="dow">Tue</div><div class="num">6</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Street karts, Akihabara, latte art</h3><div class="one">Go-kart Tokyo's streets in costume → electronics and retro games → latte art class → cocktails in Ginza.</div><div class="chips"><span class="chip book">IDP needed</span><span class="chip">flex day</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">Recovery from Uji, and the day for the two "class/experience" items. Nothing here is time-critical, so it's also the buffer if something earlier slips.</div>
+      <ul>
+        <li><b>Street go-karts</b> (the "Mario Kart" thing, minus the Nintendo license since a lawsuit): 1–2.5 h, ¥11,000–20,000 pp, costume included, routes past Tokyo Tower and over Rainbow Bridge. <b>Hard rule: you need a 1949-Geneva International Driving Permit from AAA (~$20), issued in the US before you fly.</b> No permit, no kart, no exceptions. Real traffic, real karts.</li>
+        <li><b>Akihabara</b>: Yodobashi Akiba (nine floors of electronics), Super Potato for retro games, Mandarake. (Yodobashi's Nishi-Shinjuku flagship is by the hotel for anything practical.)</li>
+        <li><b>Latte art class</b> for Elijah: GetYourGuide's "Discover Coffee Experience" is 90 min, English, max 4, on real machines. Or Koffee Mameya Kakeru's coffee-omakase counter for the tasting version.</li>
+        <li><b>Cocktails</b>: Bar High Five (Ginza, the classic), Gen Yamamoto (Azabu-Juban, seasonal tasting flights, 8 seats), The SG Club (Shibuya). Reserve; ¥1,000–1,500 cover is normal.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 6 · street karts, Akihabara, latte art, cocktail bars"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d07">
+    <summary><div class="dt"><div class="dow">Wed</div><div class="num">7</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Tokyo DisneySea (group vote)</h3><div class="one">The adult Disney park: Fantasy Springs, Tower of Terror, drinks in the park → last dinner in Shinjuku.</div><div class="chips"><span class="chip book">tickets ~Nov 7</span><span class="chip">vote</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <div class="why">DisneySea exists only in Tokyo. It's the one Disney park designed for adults: nautical theming, alcohol served, Fantasy Springs (Frozen, Tangled, Peter Pan lands opened 2024). Japanese school break ends about now so crowds drop from the Dec 29–Jan 3 peak.</div>
+      <ul>
+        <li><b>Tickets</b> ¥7,900–10,900 depending on date tier, sold only on the official site, released about two months ahead, so roughly Nov 7 for this date. Popular dates sell out.</li>
+        <li><b>Fantasy Springs rides</b> need a free Standby Pass from the app (grab it at park opening, they run out) or paid Premier Access ¥2,000–2,500 per ride.</li>
+        <li>Open to close is ~9:00–21:00; 45 min from Shinjuku by train.</li>
+        <li class="alt">No Disney: a free Tokyo day. Yanaka old town, Kichijoji and Inokashira Park, Kagurazaka, second onsen, a last big meal.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 7 · DisneySea (or free Tokyo day)"></div>
+    </div>
+  </details>
+
+  <details class="day" id="d08">
+    <summary><div class="dt"><div class="dow">Thu</div><div class="num">8</div><div class="mon">JAN</div></div>
+      <div class="ttl"><h3>Tax refund, then home</h3><div class="one">Late checkout → Narita by 14:00 → tax refund desk → JAL 62 at 17:05 → LAX at 09:40 the same day.</div><div class="chips"><span class="chip">departure</span></div></div>
+      <div class="caret" aria-hidden="true"></div></summary>
+    <div class="body">
+      <ul>
+        <li><b>Tax-free changed on Nov 1, 2026.</b> Old system: show passport, skip the tax at the register. New system: pay the 10% tax, then get it refunded at the airport <i>before</i> departure by showing goods and receipts. Keep every receipt over ¥5,000 (watches, denim, knives, electronics) in one envelope and budget a full extra hour at Narita.</li>
+        <li>Limousine Bus from the hotel ~11:30, or Narita Express from Shinjuku ~12:00. Duty-free Tokyo Banana, Royce chocolate, KitKat flavors in the departures hall.</li>
+      </ul>
+      <div class="fb" data-fb="Jan 8 · departure and tax refund"></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ SIGHTS ============ -->
+<section id="sights">
+  <div class="sec-head"><div class="kanji">観光</div><div><div class="eyebrow">Mainstream vs. the version next door</div><h2>Sights, and the smarter alternative</h2></div></div>
+  <p class="lead">Left is the famous one and what it costs. Right is what a repeat visitor does instead. Do either; the point is knowing the option exists.</p>
+  <div class="vs">
+    <div class="row"><div><span class="k">famous</span><b>Shibuya Sky</b> rooftop, 229 m. ¥2,700–3,400, timed ticket, sunset slots sell out within hours of release.</div><div><span class="k">instead</span><b>Tokyo Metropolitan Government Building</b>: free, 202 m, next door to the hotel, open to 22:00. And <b>Hikarie 11F Sky Lobby</b> in Shibuya: free, no ticket, looks straight at the crossing.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>teamLab Borderless</b> at Azabudai Hills, ¥3,600–5,600.</div><div><span class="k">instead</span><b>teamLab Planets</b> in Toyosu, ¥3,200–3,600. Barefoot water rooms, and it closes forever at the end of 2027.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Tsukiji Outer Market</b>, free, mobbed Dec 28–30, then shut until ~Jan 4.</div><div><span class="k">instead</span>Go at 8:00 on Dec 29 and leave by 10. Or <b>Toyosu Market</b> for the actual 5 a.m. tuna auction (free deck) and market sushi.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Meiji Jingu hatsumode</b>, Jan 1–3. Free, three million people, hours in line.</div><div><span class="k">instead</span>See Meiji Jingu's forest on the Dec 30 run. Do the actual shrine ritual at <b>Hanazono Shrine</b>, a 15-minute walk from the hotel.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Tokyo Skytree</b>, 634 m, ¥2,100–3,400, far east side, long lines.</div><div><span class="k">instead</span>You already have the free Tocho deck. <b>Tokyo Tower</b> at night is prettier from the outside anyway (Zojoji temple frames it).</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Senso-ji</b> in Asakusa. Free. Chaos after 10:00.</div><div><span class="k">instead</span>Same temple at <b>7:00</b>. Grounds never close. Then Kappabashi knives and Suzukien's seven-strength matcha gelato as they open.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Ghibli Museum</b>, Mitaka. ¥1,000, tickets released the 10th of the prior month at 10:00 JST, gone in minutes.</div><div><span class="k">instead</span>Only if someone really cares: alarm for Dec 10 for January dates. Otherwise the Donguri Republic Ghibli shops.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Takeshita Street</b>, Harajuku. Free. Crepes and teenagers.</div><div><span class="k">instead</span>One block over: <b>Cat Street and Ura-Harajuku</b> for the brands, then <b>Aoyama</b> for the architecture.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Golden Gai</b>, 200 six-seat bars in six alleys. ¥500–1,000 cover each.</div><div><span class="k">instead</span>Still go (Albatross, Champion are English-friendly). Also <b>Nonbei Yokocho</b> in Shibuya and <b>Omoide Yokocho</b> by the hotel, which has food, not just drinks.</div></div>
+    <div class="row"><div><span class="k">famous</span><b>Shibuya Crossing countdown</b> on NYE.</div><div><span class="k">instead</span>Cancelled again; the city fences the station and bans public drinking. You're at Circus. Free fallback: the projection show at the Tokyo Metropolitan Government plaza, steps from the hotel.</div></div>
+  </div>
+  <div class="fb" data-fb="Sights · the mainstream-vs-alternative approach"></div>
+
+  <div class="grid" style="margin-top:22px">
+    <div class="opt"><span class="k">class</span><h3>Latte art</h3><ul><li>GetYourGuide "Discover Coffee Experience", Tokyo: 90 min, English, max 4 people, hands-on espresso machines.</li><li>Backup: Klook/Viator Asakusa classes ~¥3,500.</li></ul><div class="fb" data-fb="Latte art class"></div></div>
+    <div class="opt"><span class="k">class</span><h3>Matcha in Tokyo</h3><ul><li><b>Sakurai Japanese Tea Experience</b> (Omotesando): 8-seat counter, tea tasting courses ¥3,800–6,900, 90 min, max 4. The serious one; book by email.</li><li><b>Maikoya</b> Shinjuku: tea ceremony with an English host from ¥6,000, kimono optional.</li><li>Cafes: Nakamura Tokichi Ginza (the Uji shop's Tokyo branch), Ippodo Marunouchi, Kagurazaka Saryo.</li></ul><div class="fb" data-fb="Matcha class or tea experience in Tokyo"></div></div>
+    <div class="opt"><span class="k">ride</span><h3>Street go-karts</h3><ul><li>¥11,000–20,000 pp, 1–2.5 h, costumes, Shibuya / Tokyo Tower / Rainbow Bridge routes.</li><li><b>Needs a 1949 Geneva International Driving Permit from AAA, obtained in the US before departure.</b> Bring your normal license too.</li></ul><div class="fb" data-fb="Street go-karts (needs IDP from AAA)"></div></div>
+  </div>
+</section>
+
+<!-- ============ TRIPS ============ -->
+<section id="trips">
+  <div class="sec-head"><div class="kanji">遠出</div><div><div class="eyebrow">Out of town</div><h2>Uji, and the snow day</h2></div></div>
+
+  <h3 style="margin-top:10px">Uji as a day trip: what it really costs</h3>
+  <p class="small">The group decided against sleeping away from the suite, so this is the honest version of the day trip.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Leg</th><th>Time</th><th>Cost per person</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Hotel → Tokyo Station</td><td data-l="time"><span class="y">35 min</span></td><td data-l="cost"><span class="y">¥210</span></td><td data-l="notes">Chuo line from Shinjuku, or Oedo line from Tochomae</td></tr>
+      <tr><td>Nozomi bullet train → Kyoto</td><td data-l="time"><span class="y">2 h 15</span></td><td data-l="cost"><span class="y">¥14,000</span> ordinary · <span class="y">¥19,000</span> Green Car</td><td data-l="notes">SmartEX app, opens exactly one month ahead (Dec 5). Foreign cards accepted. Fuji on the right side.</td></tr>
+      <tr><td>JR Nara Line rapid → Uji</td><td data-l="time"><span class="y">20 min</span></td><td data-l="cost"><span class="y">¥240</span></td><td data-l="notes">Fushimi Inari is two stops along this line</td></tr>
+      <tr><td><b>Door to door</b></td><td data-l="time"><span class="y">3.5 h each way</span></td><td data-l="cost"><span class="y">~¥29,000</span> round trip</td><td data-l="notes">About 5.5 hours in Uji, 7 hours in transit. A JR Pass (¥50,000) does not pay off for one round trip.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid">
+    <div class="opt"><span class="k">add-on</span><h3>Fushimi Inari, same line</h3><ul><li>The 10,000 orange torii gates. Two stops from Kyoto toward Uji. Adds ~90 min to the day; skip Ujigami Shrine or the river walk to fit it.</li></ul><div class="fb" data-fb="Uji add-on: Fushimi Inari on the way"></div></div>
+    <div class="opt pick"><span class="k">hands-on</span><h3>Grind your own matcha</h3><ul><li>Fukujuen Ujicha Kobo, ¥2,200, 40 min, reserve by phone. Lowest risk, on the route.</li><li>Marukyu Koyamaen factory tour: English twice weekly, email booking, worth asking now.</li></ul><div class="fb" data-fb="Uji hands-on: Fukujuen grinding / Marukyu Koyamaen tour"></div></div>
+    <div class="opt"><span class="k">bigger</span><h3>Tea farm day (Wazuka)</h3><ul><li>d:matcha farm tour, 4 h, English, ¥35,000 pp. Winter operation unconfirmed and it's a different train line; probably not this trip.</li></ul><div class="fb" data-fb="Tea farm tour (Wazuka) — probably skip"></div></div>
+  </div>
+
+  <h3 style="margin-top:26px">Snow: option A is GALA Yuzawa</h3>
+  <p class="small">The group leaned to option A (day trip, no overnight). Prices are last season's; expect +0–5%. Decide the week before using SnowJapan.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Resort</th><th>From Tokyo</th><th>Lift</th><th>Terrain</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td><b>GALA Yuzawa</b></td><td data-l="access"><span class="y">77 min</span>, gondola at the station</td><td data-l="lift"><span class="y">¥6,000</span></td><td data-l="terrain">Groomers, beginner–intermediate, often icy early season</td><td data-l="verdict"><b>The day trip.</b> Zero logistics.</td></tr>
+      <tr><td><b>Kagura</b> (via Echigo-Yuzawa)</td><td data-l="access"><span class="y">2.5 h</span>, train + bus</td><td data-l="lift"><span class="y">¥7,500</span></td><td data-l="terrain">Tree runs, real off-piste, holds snow</td><td data-l="verdict">Upgrade if the group wants terrain</td></tr>
+      <tr><td><b>Karuizawa Prince</b></td><td data-l="access"><span class="y">65 min</span></td><td data-l="lift"><span class="y">¥5,400</span></td><td data-l="terrain">Small, artificial snow, big outlet mall</td><td data-l="verdict">Shopping-with-snow novelty only</td></tr>
+      <tr><td><b>Nozawa / Hakuba / Myoko</b></td><td data-l="access"><span class="y">2.5–3.5 h</span></td><td data-l="lift"><span class="y">¥7,000–11,000</span></td><td data-l="terrain">The real mountains</td><td data-l="verdict">Need an overnight; next trip</td></tr>
+    </tbody>
+  </table></div>
+  <div class="fb" data-fb="Snow day plan (GALA Yuzawa, Jan 3)"></div>
+</section>
+
+<!-- ============ FOOD ============ -->
+<section id="food">
+  <div class="sec-head"><div class="kanji">食</div><div><div class="eyebrow">Eating</div><h2>Food, and what gets booked when</h2></div></div>
+  <p class="lead">Budget from Justin: about $250–300 per person per fine-dining night, roughly ¥37,000–45,000. That comfortably covers Tokyo's best two-star tasting menus. Michelin Tokyo 2026 lists 160 starred restaurants; nearly all of them close Dec 30 → Jan 3, so our windows are Dec 29, Dec 30 and Jan 4–7. Proposal: <b>three booked nights</b> (Dec 29, Dec 30, Jan 4), everything else casual.</p>
+  <div class="note ai"><p><b>The one argument for going over budget:</b> a top sushi counter (Kanesaka, Hakkoku, Tokami) runs ¥40,000–50,000 and is a genuinely different experience from anywhere in the US. If we do one splurge, that's the one. Den and Florilège fit the budget as-is.</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Where</th><th>What it is</th><th>Per person</th><th>How to book</th><th>When</th></tr></thead>
+    <tbody>
+      <tr><td><b>Florilège</b> ★★</td><td data-l="what">Modern French with Japanese produce, max party of 4</td><td data-l="cost"><span class="y">¥12,000</span> lunch · <span class="y">¥24,000</span> dinner +10%</td><td data-l="book">TableCheck</td><td data-l="when">Rolling: exactly one month ahead, midnight JST</td></tr>
+      <tr><td><b>Den</b> ★★</td><td data-l="what">Playful modern kaiseki; the fun two-star</td><td data-l="cost"><span class="y">¥30,000–40,000</span></td><td data-l="book">Phone only, in Japanese. Concierge calls.</td><td data-l="when">Exactly two months ahead (Oct 29–30 for our dates)</td></tr>
+      <tr><td><b>Sazenka</b> ★</td><td data-l="what">Chinese kaiseki, the easiest top-tier to book online</td><td data-l="cost"><span class="y">~¥30,000</span></td><td data-l="book">TableCheck, instant</td><td data-l="when">Open now</td></tr>
+      <tr><td><b>Manten Sushi</b></td><td data-l="what">24-course sushi omakase, flat price, seats four</td><td data-l="cost"><span class="y">¥8,800</span></td><td data-l="book">TableCheck</td><td data-l="when">Open now</td></tr>
+      <tr><td><b>Kanesaka / Hakkoku / Tokami</b></td><td data-l="what">Serious sushi counters that take foreigners (the splurge)</td><td data-l="cost"><span class="y">¥40,000–50,000</span></td><td data-l="book">Omakase.in / Tableall</td><td data-l="when">Monthly waves, Nov 1 and Dec 1</td></tr>
+      <tr><td><b>Nakajima</b> ★ lunch</td><td data-l="what">Michelin-starred sardine set lunch in a Shinjuku basement</td><td data-l="cost"><span class="y">¥800–1,000</span></td><td data-l="book">Queue, no reservations</td><td data-l="when">Walk in 11:30</td></tr>
+      <tr><td><b>Fuunji</b></td><td data-l="what">Tsukemen (dipping ramen), 5 min from the hotel</td><td data-l="cost"><span class="y">¥1,200</span></td><td data-l="book">Ticket machine, queue</td><td data-l="when">Lunch and early evening</td></tr>
+      <tr><td><b>Bar Benfiddich</b></td><td data-l="what">No-menu herbal cocktails, Nishi-Shinjuku</td><td data-l="cost"><span class="y">¥2,000–2,500</span> a drink</td><td data-l="book">TableCheck, 3 seatings a night</td><td data-l="when">20th of the prior month: Nov 20, then Dec 20</td></tr>
+      <tr><td><b>Koffee Mameya Kakeru</b></td><td data-l="what">Coffee omakase at a counter</td><td data-l="cost"><span class="y">¥3,000–5,000</span></td><td data-l="book">TableCheck</td><td data-l="when">Open now</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">Expect a card guarantee and ¥10,000–20,000 pp no-show fees at the top tier. Smart casual is enough everywhere. No tipping, anywhere. Casual musts: Isetan depachika, Nemuro Hanamaru conveyor sushi, Harajuku Gyoza Lou, Katsukura tonkatsu, Afuri yuzu ramen, konbini egg sando.</p>
+  <div class="fb" data-fb="Food plan (3 booked nights, one possible sushi splurge)"><input placeholder="Must-eats to add? OK with one ¥45k sushi night?" aria-label="food note" data-note></div>
+</section>
+
+<!-- ============ FITNESS ============ -->
+<section id="fit">
+  <div class="sec-head"><div class="kanji">鍛錬</div><div><div class="eyebrow">Post-Hyrox maintenance</div><h2>Gyms, runs, recovery</h2></div></div>
+  <div class="note shu"><p><b>Everyone has tattoos, so:</b> most onsen and spas (Spa LaQua, Toshimaen, Ryogoku Edoyu) will refuse entry. The list below is only the places that work. Gyms are more relaxed than baths, but Gold's varies by branch; municipal gyms generally don't care.</p></div>
+  <div class="grid">
+    <div class="opt"><span class="k">lift</span><h3>Hotel gym first</h3><ul><li>Hyatt Regency Tokyo's fitness centre (Joule Spa &amp; Wellness). Equipment and any guest fee still to be confirmed with the hotel.</li><li>Day passes: Gold's Gym Harajuku/Shibuya ¥3,000–5,500 with passport, tattoo policy per branch. <b>Shinjuku Sports Center</b> (Takadanobaba) ¥400, closed Dec 29–Jan 3.</li><li>Functional: CrossFit Nishi-Azabu drop-in ¥4,400, runs Hyrox-style sessions. Book ahead, indoor shoes.</li></ul><div class="fb" data-fb="Gym plan"></div></div>
+    <div class="opt"><span class="k">run</span><h3>Routes with a coffee at the end</h3><ul><li><b>Yoyogi Park / Meiji Jingu</b> from the hotel, 2.5 km out, loop, back. Fuglen or Little Nap after.</li><li><b>Imperial Palace</b> 5 km loop, counter-clockwise; adidas Runbase lockers + showers ¥800. Pairs with Jan 2.</li><li><b>Shinjuku Gyoen</b> garden, marked 3.5 km route, ¥500, from 9:00, closed Mondays.</li><li>Sunrise 6:50, 2–5°C. Gloves and a hat.</li></ul><div class="fb" data-fb="Running routes"></div></div>
+    <div class="opt pick"><span class="k">recover</span><h3>Tattoo-friendly baths</h3><ul><li><b>Kogane-yu</b> (Kinshicho): renovated sento, sauna, craft beer bar, tattoos welcome, ~¥1,000.</li><li><b>Daikoku-yu</b> (Sumida): outdoor bath, open till 1 a.m., tattoos welcome, ¥520.</li><li><b>Thermae-Yu</b> (Kabukicho, 24 h): only if tattoos are small enough for two cover stickers each.</li><li>Dr. Stretch: assisted stretching, ¥3,300 / 60 min.</li></ul><div class="fb" data-fb="Onsen / sento (tattoo-friendly list)"></div></div>
+  </div>
+</section>
+
+<!-- ============ SHOPPING ============ -->
+<section id="shop">
+  <div class="sec-head"><div class="kanji">買物</div><div><div class="eyebrow">Buying things</div><h2>Watches, fashion, lucky bags</h2></div></div>
+  <div class="grid">
+    <div class="opt"><span class="k">watches</span><h3>Where the vintage lives</h3><ul><li><b>Nakano Broadway 3F</b> (Jan 4): Jackroad, Betty Road, Firekids, AskWatch. Open to 20:30.</li><li><b>Ginza</b> (Dec 29): Shellman, Grand Seiko flagship, Seiko Museum.</li><li><b>Nishi-Shinjuku</b> by the hotel: Kitamura Camera, Quark, Ishida Best, Komehyo.</li><li>Reality check: Rolex and Omega aren't cheaper than the US. The draw is depth, condition and honest grading. Japan-market Seiko and Grand Seiko are where prices win, 20–30% at entry level. Prices are fixed; "box and papers" is the culture.</li></ul><div class="fb" data-fb="Vintage watch shopping"></div></div>
+    <div class="opt"><span class="k">fashion</span><h3>By neighborhood</h3><ul><li><b>Harajuku / Cat Street</b> (Dec 30): Kapital, Neighborhood, WTAPS, Human Made, BAPE, Beams, Ragtag, Kinji, Nepenthes.</li><li><b>Aoyama</b>: Comme des Garçons, Issey Miyake, Yohji, Sacai, Undercover, Momotaro Jeans.</li><li><b>Shimokitazawa</b> (Jan 4): New York Joe, Flamingo, Haight &amp; Ashbury.</li><li><b>Shinjuku</b>: Isetan Men's (best menswear floor in Japan), Beams Japan, Newoman.</li></ul><div class="fb" data-fb="Fashion shopping"></div></div>
+    <div class="opt"><span class="k">new year</span><h3>Fukubukuro and the new tax rule</h3><ul><li>Lucky bags Jan 1–3; Isetan opens 10:00 Jan 2, Lumine 11:00. Winter sales start the same day. Nearly everything is closed Jan 1.</li><li><b>Tax-free changed Nov 1, 2026</b>: pay the 10% at the till, refund at the airport before you fly. Keep receipts; ¥5,000 minimum per store per day; goods leave Japan within 90 days.</li><li>Practical: Yodobashi and Hands in Shinjuku, Don Quijote Mega Shibuya, Pokémon Center and Nintendo Tokyo in Shibuya Parco.</li></ul><div class="fb" data-fb="New Year shopping + tax refund plan"></div></div>
+  </div>
+</section>
+
+<!-- ============ NIGHTLIFE ============ -->
+<section id="night">
+  <div class="sec-head"><div class="kanji">夜</div><div><div class="eyebrow">After dark</div><h2>Nightlife and New Year's Eve</h2></div></div>
+  <div class="grid">
+    <div class="opt pick"><span class="k">NYE</span><h3>Circus Tokyo</h3><ul><li>3-26-16 Shibuya, 5 min from the New South exit. 1F lounge plus a high-ceilinged basement floor. Books house, techno, breaks and DnB; mixed local and international crowd.</li><li>Last NYE: 22:00–05:00, London Elektricity headlining, ¥3,500 early / ¥4,000 advance / ¥5,000 door, on ZAIKO and Resident Advisor.</li><li>2026→27 lineup expected late Oct to Nov; early tiers go by early Dec. Passport at the door, 20+.</li></ul><div class="fb" data-fb="NYE at Circus Tokyo"></div></div>
+    <div class="opt"><span class="k">clubs</span><h3>Other rooms</h3><ul><li><b>WOMB</b> Shibuya: big-room techno institution since 2000. NYE ¥6,000–8,000.</li><li><b>Zerotokyo</b> Kabukicho: 1,500 capacity, five floors, walk home. NYE door ¥7,500.</li><li><b>Vent</b> Omotesando: 400 capacity, custom sound, deep house and minimal, ~¥3,500.</li><li>Contact, Vision and Ageha have all closed. Listening bars worth a look: Bar Bonobo, Oath, Bridge, JBS (jazz vinyl), Bar Martha in Ebisu.</li></ul><div class="fb" data-fb="Other clubs and listening bars"></div></div>
+    <div class="opt"><span class="k">bars</span><h3>Cocktails, alleys, karaoke</h3><ul><li><b>Bar Benfiddich</b> (walk home), Bar High Five (Ginza), Gen Yamamoto (Azabu-Juban), The SG Club (Shibuya), Bar Trench (Ebisu). Covers ¥1,000–1,500, reserve.</li><li><b>Golden Gai</b> (Albatross, Champion), Nonbei Yokocho, Ebisu Yokocho, Shinjuku Ni-chome (Aiiro Cafe).</li><li><b>Karaoke Kan Shibuya</b>, rooms 601–602 are the Lost in Translation rooms. Late-night all-you-can-drink flat rates from ~¥1,300.</li></ul><div class="fb" data-fb="Cocktail bars, yokocho, karaoke"></div></div>
+  </div>
+  <p class="small">Rhythm: Dec 28–30 is bonenkai season (book izakaya), Dec 31 is the peak, Jan 1–2 the clubs go dark, normal programming is back by Jan 3–4. Last trains 00:00–01:00; GO app or Uber; ¥2,500–3,500 Shibuya to the hotel.</p>
+</section>
+
+<!-- ============ BOOKING CLOCK ============ -->
+<section id="book">
+  <div class="sec-head"><div class="kanji">予約</div><div><div class="eyebrow">Dates that matter</div><h2>The booking clock</h2></div></div>
+  <p class="lead">Justin is the booker. Times are Japan time, which is 17 hours ahead of LA during our winter. Midnight JST is 7 a.m. Pacific.</p>
+  <ul class="tl">
+    <li class="now"><span class="d">Now · September</span><b>Open now:</b> Sazenka, Manten Sushi, Koffee Mameya, teamLab Planets timed slot (Dec 29 evening). Email Marukyu Koyamaen for a Jan 5 English tour. Ask the Hyatt about the gym, osechi, and whether the concierge will call Den. Everyone checks whether they want the AAA driving permit.</li>
+    <li><span class="d">October</span>Sakurai Tea Experience by email. Fukujuen grinding class by phone (Jan 5 afternoon). Group vote on Disney closes.</li>
+    <li><span class="d">Oct 29–30</span><b>Den</b>: concierge phones exactly two months before Dec 29/30.</li>
+    <li><span class="d">Nov 1</span>Monthly release wave on Omakase.in / Tableall for late-December sushi. Start watching Circus Tokyo, WOMB and Zerotokyo for NYE tickets.</li>
+    <li><span class="d">~Nov 7</span><b>DisneySea</b> Jan 7 tickets, released about two months ahead on the official site.</li>
+    <li><span class="d">Nov 20</span><b>Bar Benfiddich</b> December calendar opens on TableCheck (Dec 30 seating).</li>
+    <li><span class="d">Nov 29–30</span><b>Florilège</b> one-month rolling window for Dec 29 and Dec 30, midnight JST.</li>
+    <li><span class="d">Dec 1</span>Monthly wave for January restaurant dates (Jan 4 dinner #3).</li>
+    <li><span class="d">Dec 3</span><b>Eki-net</b>: GALA Yuzawa shinkansen seats for Jan 3.</li>
+    <li><span class="d">Dec 5</span><b>SmartEX</b>: Nozomi Tokyo → Kyoto and back for Jan 5. Book both legs the moment it opens.</li>
+    <li><span class="d">Dec 10, 10:00 JST</span>Ghibli Museum January dates (optional).</li>
+    <li><span class="d">Dec 16</span><b>Shibuya Sky</b> sunset slot for Dec 30, released 14 days ahead around midnight. Confirm Nakamura Tokichi's post-New Year hours.</li>
+    <li><span class="d">Dec 20</span>Benfiddich January calendar (if a second visit).</li>
+    <li><span class="d">Dec 27</span>Snow go/no-go for Jan 3 on SnowJapan. Fly.</li>
+  </ul>
+  <div class="fb" data-fb="Booking clock"></div>
+</section>
+
+<!-- ============ GLOSSARY ============ -->
+<section id="gloss">
+  <div class="sec-head"><div class="kanji">用語</div><div><div class="eyebrow">First-timer cheat sheet</div><h2>Words that show up above</h2></div></div>
+  <div class="gloss">
+    <div><b>Shōgatsu</b><span class="jp">正月</span> — Japanese New Year, Jan 1–3. The country's biggest holiday; family time, shrine visits, everything closed.</div>
+    <div><b>Hatsumode</b><span class="jp">初詣</span> — the first shrine visit of the year. Pray, toss a coin, buy a charm, pull a fortune.</div>
+    <div><b>Joya no kane</b><span class="jp">除夜の鐘</span> — temple bells rung 108 times at midnight on Dec 31.</div>
+    <div><b>Bonenkai</b><span class="jp">忘年会</span> — "forget the year" work parties. Every izakaya is packed the last week of December.</div>
+    <div><b>Fukubukuro</b><span class="jp">福袋</span> — sealed lucky bags sold Jan 1–3 at big discounts. A national sport.</div>
+    <div><b>Osechi</b><span class="jp">おせち</span> — the traditional New Year meal in lacquer boxes, ordered weeks ahead.</div>
+    <div><b>Izakaya</b><span class="jp">居酒屋</span> — a Japanese pub: small plates, beer, highballs, loud.</div>
+    <div><b>Yokocho</b><span class="jp">横丁</span> — an alley of tiny bars and food counters (Omoide, Golden Gai, Nonbei).</div>
+    <div><b>Depachika</b><span class="jp">デパ地下</span> — the basement food hall of a department store. Best takeaway in the world.</div>
+    <div><b>Konbini</b><span class="jp">コンビニ</span> — 7-Eleven, Lawson, FamilyMart. Open 24/7, food is genuinely good, ATMs work.</div>
+    <div><b>Omakase</b><span class="jp">お任せ</span> — "I leave it to you." The chef decides the courses. How sushi counters work.</div>
+    <div><b>Kaiseki</b><span class="jp">会席</span> — a multi-course seasonal Japanese tasting menu.</div>
+    <div><b>Onsen / sento</b><span class="jp">温泉 / 銭湯</span> — hot-spring bath / neighborhood bathhouse. Wash first, no swimsuits, no phones. Most ban tattoos; ours don't.</div>
+    <div><b>Shinkansen</b><span class="jp">新幹線</span> — the bullet train. Nozomi is the fastest Tokyo–Kyoto service. Reserve one month ahead.</div>
+    <div><b>Suica</b><span class="jp">スイカ</span> — tap-to-pay transit card. Add to Apple/Google Wallet before flying.</div>
+    <div><b>IDP</b> — International Driving Permit, 1949 Geneva version, from AAA in the US. Required for the street karts.</div>
+    <div><b>Tocho</b><span class="jp">都庁</span> — the Tokyo Metropolitan Government Building, next to our hotel, with free observation decks.</div>
+    <div><b>Comiket</b> — the world's largest comics convention, Dec 29–31 at Tokyo Big Sight. Avoid Odaiba those days.</div>
+    <div><b>Tax-free</b> — from Nov 1, 2026: pay tax in store, refund at the airport before departure. Keep receipts.</div>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="q">
+  <div class="sec-head"><div class="kanji">質問</div><div><div class="eyebrow">Still open</div><h2>Questions for the group</h2></div></div>
+  <ol class="qs">
+    <li><b>DisneySea on Jan 7</b>: yes or no? (Tickets go on sale ~Nov 7.)</li>
+    <li><b>Street karts on Jan 6</b>: who's willing to get the AAA International Driving Permit before we fly?</li>
+    <li><b>Uji as a 14-hour day trip on Jan 5</b>: everyone in? (No overnight; we keep the suite.)</li>
+    <li><b>One sushi splurge night</b> at ¥40–50k per person, or stay at the ¥25–40k tier for all three booked dinners?</li>
+    <li><b>Snow on Sat Jan 3</b>: GALA (easy) or the Kagura upgrade (better terrain, +1 h each way)?</li>
+    <li><b>Circus vs WOMB vs Zerotokyo</b> once the NYE lineups drop in November.</li>
+    <li><b>Ghibli Museum</b>: does anyone care enough to set a Dec 10 alarm?</li>
+  </ol>
+  <label for="genNotes" class="small"><b>Anything else</b> (goes into your copied feedback)</label>
+  <textarea id="genNotes" placeholder="Ideas, vetoes, things I missed…"></textarea>
+</section>
+
+<p class="small" style="margin-top:36px;color:var(--mute)">Research compiled Sept 18, 2026 from official sites and recent guides. Prices are late-2026 where published, otherwise last season's. Anything with a New Year schedule gets re-verified in December.</p>
+</div>
+
+<div class="sumbar" role="region" aria-label="Feedback actions">
+  <span><span id="fbCount">0</span> reactions</span>
+  <button id="copyBtn" type="button">Copy my feedback</button>
+</div>
+
+<dialog id="dlg"><div class="in">
+  <h3 style="margin-bottom:6px">Your feedback, ready to paste</h3>
+  <p class="small">Copied to your clipboard if the browser allowed it. Otherwise select all and copy.</p>
+  <textarea id="dlgText" readonly aria-label="Feedback text"></textarea>
+  <div class="row"><button type="button" id="dlgCopy" class="primary">Copy again</button><button type="button" id="dlgClose">Close</button></div>
+</div></dialog>
+
+<script>
+(function(){
+  const KEY='tokyo-plan-fb-v2';
+  let state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){state={};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+  const R=[['up','👍 in'],['meh','🤷 unsure'],['down','👎 skip']];
+  const widgets=document.querySelectorAll('.fb[data-fb]');
+  widgets.forEach((w,i)=>{
+    const id=w.dataset.fb; const s=state[id]||{};
+    const frag=document.createDocumentFragment();
+    const lbl=document.createElement('span'); lbl.className='lbl'; lbl.textContent='React'; frag.append(lbl);
+    R.forEach(([v,t])=>{
+      const b=document.createElement('button'); b.type='button'; b.textContent=t; b.id='r-'+i+'-'+v;
+      b.setAttribute('aria-pressed', s.r===v ? 'true':'false');
+      b.addEventListener('click',()=>{
+        const cur=state[id]||{}; cur.r = cur.r===v ? '' : v; state[id]=cur; save();
+        w.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed', x===b && cur.r ? 'true':'false'));
+        count();
+      });
+      frag.append(b);
+    });
+    w.prepend(frag);
+    let note=w.querySelector('input[data-note]');
+    if(!note){note=document.createElement('input'); note.placeholder='one-line note'; note.setAttribute('aria-label','note for '+id); w.append(note);}
+    note.id='n-'+i; note.value=s.n||'';
+    note.addEventListener('input',()=>{const cur=state[id]||{}; cur.n=note.value; state[id]=cur; save();});
+  });
+  const nameEl=document.getElementById('fbName'); const gen=document.getElementById('genNotes');
+  nameEl.value=state.__name||''; gen.value=state.__gen||'';
+  nameEl.addEventListener('input',()=>{state.__name=nameEl.value; save();});
+  gen.addEventListener('input',()=>{state.__gen=gen.value; save();});
+  function count(){let n=0; widgets.forEach(w=>{const s=state[w.dataset.fb]; if(s&&(s.r||s.n)) n++;}); document.getElementById('fbCount').textContent=n;}
+  count();
+  function build(){
+    const who=nameEl.value.trim()||'Someone';
+    const lines=[`Tokyo plan feedback from ${who}`,''];
+    const map={up:'👍',meh:'🤷',down:'👎'};
+    widgets.forEach(w=>{const id=w.dataset.fb; const s=state[id]; if(!s||(!s.r&&!s.n)) return;
+      lines.push(`${s.r?map[s.r]:'•'} ${id}${s.n?' — '+s.n.trim():''}`);});
+    if(lines.length===2) lines.push('(no reactions yet)');
+    if(gen.value.trim()){lines.push('','Other notes:',gen.value.trim());}
+    return lines.join('\n');
+  }
+  const dlg=document.getElementById('dlg'), txt=document.getElementById('dlgText');
+  async function copy(){const t=build(); txt.value=t; let ok=false;
+    try{await navigator.clipboard.writeText(t); ok=true;}catch(e){}
+    if(!dlg.open) dlg.showModal(); if(!ok){txt.focus(); txt.select();}}
+  document.getElementById('copyBtn').addEventListener('click',copy);
+  document.getElementById('dlgCopy').addEventListener('click',copy);
+  document.getElementById('dlgClose').addEventListener('click',()=>dlg.close());
+  const days=document.querySelectorAll('details.day');
+  document.getElementById('openAll').addEventListener('click',()=>days.forEach(d=>d.open=true));
+  document.getElementById('closeAll').addEventListener('click',()=>days.forEach(d=>d.open=false));
+  // open the day a hash points at
+  function openHash(){const h=location.hash&&document.querySelector(location.hash); if(h&&h.matches('details.day')) h.open=true;}
+  window.addEventListener('hashchange',openHash); openHash();
+})();
+</script>
+</body>
+</html>
