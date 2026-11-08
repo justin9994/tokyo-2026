@@ -8,6 +8,49 @@ Compiled **Nov 8 2026**. Base is Hyatt Regency Tokyo (Nishi-Shinjuku). Already b
 
 ---
 
+## Jan 7 for two: Michelin dinner (Justin and Brittany)
+Checked **Nov 9 2026, about 03:00 JST**, for **2 guests on Thu Jan 7 2027**, dinner. Nothing was booked, held or submitted.
+
+**What the status words mean**
+- **OPEN:** I saw a date-specific slot myself.
+- **FULL:** I saw date-specific slots, all taken.
+- **NOT RELEASED:** the platform has no inventory for Jan 7 yet.
+- **IN WINDOW:** the OMAKASE restaurant page says slots exist somewhere in the open window, but I can't see Jan 7 itself until the account email is verified.
+
+**Unblock this first:** OMAKASE hides every date calendar until the account email is verified. Five candidates on this list show IN WINDOW there, and none of them have Jan 7 seats on Pocket Concierge. Verifying the email is the single biggest lever for this night.
+
+### Ranked
+
+| # | Restaurant | Jan 7 status (2 ppl) | Price pp | Route / next step |
+|---|---|---|---|---|
+| 1 | **Myojaku 明寂** 3★ (Nishi-Azabu) | **IN WINDOW** on OMAKASE (through Jan 31). Pocket Concierge: none for Jan 7. | from ¥49,500 | OMAKASE https://omakase.in/en/r/ff108237. Limit 1 booking per 2 months. Next round Dec 1 23:00 JST. Closed Sundays. **Best splurge if Jan 7 is free.** |
+| 2 | **Narisawa** 2★ (Aoyama) | **IN WINDOW** on OMAKASE (through Jan 31). Pocket Concierge: none for Jan 7. | course price not shown on OMAKASE (Tableall lists about ¥89,500 with markup) | OMAKASE https://omakase.in/en/r/ne143874. Next round Jan 1 10:00 JST. Closed Sun and Mon. |
+| 3 | **L'Effervescence** 2★ (Nishi-Azabu) | **IN WINDOW** on OMAKASE (through Jan 9). Pocket Concierge: none for Jan 7. | from ¥49,500 | OMAKASE https://omakase.in/en/r/tm207964. Next round Nov 10 00:00 JST. Closed Sun and Mon. |
+| 4 | **Sushi Kanesaka, Palace Hotel branch** (Marunouchi) | **OPEN, instant**: 17:00, 17:30, 20:15 at the counter | Omakase ¥44,276; Hagi ¥25,300 | Pocket Concierge https://www.pocket-concierge.jp/en/restaurants/244161. Kanesaka group, but **not the 2★ Ginza flagship**. **Surest bookable option.** |
+| 5 | **Nagatacho Sushi Kanesaka** | **OPEN, request**: 18:00, 18:30, 19:00, 19:30, 20:00 | ¥32,670 or ¥18,150 | Pocket Concierge https://www.pocket-concierge.jp/en/restaurants/245401. A branch, not the flagship. |
+| 6 | **Florilège** 2★ (Kamiyacho) | **NOT RELEASED.** TableCheck has Dec 10–12 inventory today and nothing from Dec 13 on (Dec 13 is a Sunday and Mondays are closed). | ¥24,000 + 10% | TableCheck (`florilege`). Rolling ~1-month release at 00:00 JST, so Jan 7 lands by **Dec 7 00:00 JST** at the latest, possibly a few days earlier. Start checking Dec 4. OMAKASE (xz490246) is also rolling, currently to Dec 9. Closed Mondays. |
+| 7 | **Sézanne** 2★ (Four Seasons Marunouchi) | **NOT RELEASED.** TableCheck has inventory through Dec 31, which is fully booked; Jan 2 onward is empty. | about ¥35–45k (not re-checked) | TableCheck `fourseasons-tokyo-sezanne`, or OMAKASE rz444182 (window to Dec 31, next round TBD). Monthly release; January's date not stated. Ask the Hyatt concierge or Four Seasons. Closed Mon and Tue. |
+| 8 | **Ginza Sushi Kanesaka** 2★ flagship | Pocket Concierge: **Waitlist only**. OMAKASE: **IN WINDOW** (through Jan 31). | course price not shown | OMAKASE https://omakase.in/en/r/qu523011. Next round Dec 1 16:00 JST. Closed Sun and Mon. |
+| 9 | **Hakkoku** (Ginza sushi) | **IN WINDOW** on OMAKASE ("irregular" window) | from ¥46,000 (Tableall) | OMAKASE https://omakase.in/en/r/hk067071. Limit 1 per week. Closed Sun and holidays. |
+| 10 | **Nihonryori RyuGin** 3★ | Pocket Concierge: none for Jan 7 (next PC dates Nov 18–19). OMAKASE: "Stay tuned". | about ¥45–55k | OMAKASE next round **Dec 1 12:00 JST**. The official partner is My Concierge Japan (not checked). |
+| 11 | **Nishiazabu Sushi Shin** 2★ | **NOT RELEASED.** OMAKASE window only runs to Nov 30, and that window is also sold out. | ¥18,150 / ¥26,400 / ¥36,300 | OMAKASE https://omakase.in/en/r/wl401300. Next round Nov 20 16:00 JST (likely December). January is probably about Dec 20. Closed Mondays. |
+| — | **Sazenka** 3★ | **FULL** on three platforms. TableCheck: every slot 16:00–19:30 taken. OMAKASE: no slots through Jan 31. Pocket Concierge: none. | from ¥71,500 (Shanghai crab season to Jan 17) | Cancellation watch only. OMAKASE fees step up at 7 days and 2 days out, so look around Dec 31 and Jan 5. Closed Sun and Mon. |
+| — | **Quintessence** 3★ | **FULL** on OMAKASE (no slots through Feb 8). Tableall is request-only at ¥133,500 per seat. | ¥41,250 on OMAKASE | OMAKASE round opens Nov 9 09:30 JST, but it will likely add dates after Feb 8. Skip. |
+| — | **Sushi Ginza Onodera** | Pocket Concierge: **Waitlist only** | — | Skip. |
+| — | **Kohaku** 3★ | OMAKASE "Stay tuned", next round TBD | ¥51,700 | Not bookable online right now. |
+| — | **Sushi Tokami** | TableCheck slug exists but holds **no online inventory at all**, even for November dates | — | Phone or concierge only. Unverified. |
+| — | **Été** | No dinner booking route found. The OMAKASE listing is for takeaway cake only. | — | Unverified. Skip. |
+
+**Also seen, not on the list:** Nishi-Azabu **Sushi Ichi**. Pocket Concierge ID 244425, which search results attached to "Sushi Shin" but is a different restaurant. **OPEN, instant**, 17:00–19:30, ¥22,000 or ¥27,500. Its Michelin status is unverified.
+
+### Timeline for Jan 7
+- **Now:** verify the OMAKASE email, then check Jan 7 at **Myojaku → Narisawa → L'Effervescence** in that order. If none is free, take **Palace Hotel Kanesaka at 17:30**, which is instant on Pocket Concierge.
+- **Dec 1:** OMAKASE rounds open for Kanesaka Ginza (16:00 JST), RyuGin (12:00 JST) and Myojaku (23:00 JST).
+- **Dec 4–7, 00:00 JST:** Florilège Jan 7 appears on TableCheck.
+- **Early Dec:** watch Sézanne's TableCheck for its January release. Around Dec 20, Sushi Shin.
+
+---
+
 ## Book these first
 
 | Night | Pick | Backup | Action / when |
